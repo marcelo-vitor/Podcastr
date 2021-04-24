@@ -118,7 +118,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 
 // Faz todo processamento no servidor, e tbm ajuda no quesito de performance
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await api.get('episodes', {
+  const { data } = await api.get('marcelo-vitor/podcast-api/episodes', {
     params: {
       _limit: 12,
       _sort: 'published_at',

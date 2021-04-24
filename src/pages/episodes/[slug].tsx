@@ -67,7 +67,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     // Pegar parametro pelo contexto ctx
     const { slug } = ctx.params;
 
-    const { data } = await api.get(`/episodes/${slug}`)
+    const { data } = await api.get(`marcelo-vitor/podcast-api/episodes/${slug}`)
 
     const episode = {
         id: data.id,
