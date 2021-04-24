@@ -10,6 +10,8 @@ import { convertDurationToTimeString } from '../utils/convertDurationToTimeStrin
 
 import styles from './home.module.scss';
 
+
+// Tipagem do Episode
 type Episode = {
   id: string,
   title: string,
@@ -21,6 +23,7 @@ type Episode = {
   url: string
 }
 
+// Tipagem dos props
 type HomeProps = {
   latestEpisodes: Episode[],
   allEpisodes: Episode[]
@@ -113,6 +116,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 
 }
 
+// Faz todo processamento no servidor, e tbm ajuda no quesito de performance
 export const getStaticProps: GetStaticProps = async () => {
   const { data } = await api.get('episodes', {
     params: {

@@ -1,3 +1,4 @@
+// Esse arquivo foi criado para importar as fonts em todas as paginas
 import Document, { Html, Main, NextScript, Head } from 'next/document';
 
 export default class MyDocument extends Document {

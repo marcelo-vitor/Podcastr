@@ -64,6 +64,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
 
+    // Pegar parametro pelo contexto ctx
     const { slug } = ctx.params;
 
     const { data } = await api.get(`/episodes/${slug}`)
