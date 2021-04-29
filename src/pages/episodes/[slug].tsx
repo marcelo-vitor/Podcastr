@@ -7,8 +7,8 @@ import { api } from '../../services/api';
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 
 import styles from './episode.module.scss';
-import { useContext } from 'react';
-import { PlayerContext } from '../../contexts/PlayerContext';
+import { usePlayer } from '../../contexts/PlayerContext';
+import Head from 'next/head';
 
 type Episode = {
     id: string,
@@ -29,10 +29,15 @@ type EpisodeProps = {
 
 export default function Episode({ episode }: EpisodeProps) {
 
-    const { play } = useContext(PlayerContext);
+    const { play } = usePlayer();
 
     return (
         <div className={styles.container}>
+            <Head>
+                <title>
+                    {episode.title} | Podcastr
+                </title>
+            </Head>
             <div className={styles.episode}>
                 <div className={styles.thumbnailContainer}>
                     <Link href={'/'}>
@@ -70,7 +75,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
     // Pegar parametro pelo contexto ctx
     const { slug } = ctx.params;
-
+    //marcelo-vitor/podcast-api/
     const { data } = await api.get(`marcelo-vitor/podcast-api/episodes/${slug}`)
 
     const episode = {
